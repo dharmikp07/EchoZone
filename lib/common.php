@@ -64,12 +64,12 @@ function convertSqlDate($sqlDate)
 /**
  * Returns the number of comments for the specified post
  * 
+ * @param PDO $pdo
  * @param integer $postId
  * @return integer
  */
-function countCommentsForPost($postId)
+function countCommentsForPost(PDO $pdo, $postId)
 {
-    $pdo = getPDO();
     $sql = "
         SELECT
             COUNT(*) AS c
@@ -119,13 +119,12 @@ function redirectAndExit($script)
 
 /**
  * Returns all the comments for the specified post
- * 
+ * @param PDO $pdo
  * @param integer $postId
- * 
+ * @return array
  */
-function getCommentsForPost($postId)
+function getCommentsForPost(PDO $pdo, $postId)
 {
-    $pdo = getPDO();
     $sql = "
         SELECT
             id, name, text, created_at, website
