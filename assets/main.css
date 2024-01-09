@@ -58,22 +58,26 @@ body {
     border-top: 1px dotted silver;
     padding-top: 8px;
 }
+.comment .comment-meta input{
+    float: right;
+}
 .comment-body p {
     margin: 8px 4px;
 }
 .comment-list {
     border-bottom: 1px dotted silver;
     margin-bottom: 12px;
+    max-width: 900px;
 }
 
 .comment-margin {
     margin-bottom: 8px;
 }
-.comment-form input,
-.comment-form textarea {
+.user-form input,
+.user-form textarea {
     margin: 4px;
 }
-.comment-form label {
+.user-form label {
     font-size: 0.95em;
     margin: 6px;
     width: 7em;
@@ -83,4 +87,15 @@ body {
     /* Some browsers make labels too tall, and as a result they incorrectly stack horizontally.
         Let's reset each to the left-hand side to be sure. */
     clear: left;
+}
+#post-list {
+    border-collapse: collapse;
+    border: 1px solid silver;
+}
+#post-list td, #post-list th {
+    padding: 8px;
+    text-align: left;
+}
+#post-list tbody tr:nth-child(odd) {
+    background-color: #f4f4f4;
 }
