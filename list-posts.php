@@ -66,7 +66,7 @@ $posts = getAllPosts($pdo);
                             <?php echo convertSqlDate($post['created_at']) ?>
                         </td>
                         <td>
-                            <?php echo $post['comment-count'] ?>
+                            <?php echo $post['comment_count'] ?>
                         </td>
                         <td>
                             <a href="edit-post.php?post_id=<?php echo $post['id'] ?>">Edit</a>
