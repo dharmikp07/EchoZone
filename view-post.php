@@ -54,7 +54,7 @@ if ($_POST) {
 
 <head>
     <title>
-        EchoZone - A blog application |
+        Post |
         <?php echo htmlEscape($row['title']) ?>
     </title>
     <?php require 'templates/head.php' ?>

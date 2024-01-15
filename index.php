@@ -14,13 +14,15 @@ $notFound = isset($_GET['not-found']);
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
   <?php require 'templates/head.php' ?>
-  <title>Echo Zone</title>
+  <title>Echo Zone..</title>
 </head>
 
 <body>
-  <?php require "templates/title.php" ?>
+  <div class="title">
+    <?php require "templates/title.php" ?>
+  </div>
 
   <?php if ($notFound): ?>
     <div class="error box">
@@ -30,24 +32,31 @@ $notFound = isset($_GET['not-found']);
 
   <div class="post-list">
     <?php foreach ($posts as $post): ?>
-      <div class="post-synopsis">
-        <h2>
-          <?php echo htmlEscape($post['title']) ?>
-        </h2>
-        <div class="meta">
+      <div class="card post-synopsis">
+        <div class="card-header">
+          <h2>
+            <?php echo htmlEscape($post['title']) ?>
+          </h2>
+        </div>
+        <div class="card-title meta">
           <?php echo convertSqlDate($post['created_at']) ?>
 
           (
           <?php echo $post['comment_count'] ?> comments)
         </div>
-        <p>
-          <?php echo htmlEscape($post['body']) ?>
-        </p>
+        <div class="card-text">
+          <h5>
+            <?php echo htmlEscape($post['body']) ?>
+          </h5>
+        </div>
         <div class="post-controls">
-          <a href="view-post.php?post_id=<?php echo $post['id'] ?>">Read more...</a>
+          <div class="btn btn-primary control-btn-rm">
+            <a href="view-post.php?post_id=<?php echo $post['id'] ?>">Read more...</a>
+          </div>
           <?php if (isLoggedIn()): ?>
-            |
-            <a href="edit-post.php?post_id=<?php echo $post['id'] ?>">Edit</a>
+            <div class="btn btn-primary control-btn-edit">
+              <a href="edit-post.php?post_id=<?php echo $post['id'] ?>">Edit</a>
+            </div>
           <?php endif ?>
         </div>
       </div>
